@@ -1,0 +1,21 @@
+## Aufgabe 1 – Homogenisierung von Sensordaten
+
+In dieser Aufgabe habe ich Sensordaten aus einer Excel-Datei bearbeitet. Ziel war es, die Daten so zu verändern, dass es für alle 10 Minuten einen festen Messwert gibt.
+
+## Ziel
+
+Die ursprünglichen Daten waren nicht regelmäßig. Manche Zeitpunkte fehlten oder kamen mehrmals vor. Ich wollte eine Liste machen, in der jeder 10-Minuten-Zeitraum genau **einen** Messwert hat. So kann man die Daten später besser benutzen.
+
+## Mein Vorgehen
+
+- Ich habe **Python** und die **pandas**-Bibliothek benutzt.
+- Ich habe die Excel-Datei mit `pandas.read_excel()` geöffnet.
+- Ich habe die Zeit-Spalte in ein Datum-Uhrzeit-Format umgewandelt.
+- Ich habe Zeilen ohne Zeitangabe gelöscht.
+- Ich habe die Zeit-Spalte als Index verwendet, damit ich besser mit der Zeit arbeiten kann.
+- Ich habe eine Liste mit neuen Zeitpunkten gemacht: alle 10 Minuten, immer bei Minute `:01`.
+- Für jeden neuen Zeitpunkt:
+  - Ich habe im Original nach dem nächsten Messwert gesucht.
+  - Wenn es keinen Messwert gab, habe ich den letzten bekannten Wert genommen.
+- Ich habe alle neuen Messwerte gesammelt.
+-  Am Ende habe ich die neuen Daten als Excel-Datei mit dem Namen Homogene_daten.xlsx gespeichert.
